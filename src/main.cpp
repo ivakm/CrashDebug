@@ -1,16 +1,11 @@
 #include <Arduino.h>
+#include "utils/partition_info.h"
 
-void crash_me() {
-  volatile int x = 0;
-  volatile int y = 10 / x;
-  (void)y;
-}
-
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   delay(1000);
-  Serial.println("Start working...");
-  crash_me();
+  print_partition_table();
 }
 
 void loop() {}
