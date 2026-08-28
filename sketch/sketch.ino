@@ -6,11 +6,19 @@ void crash_me() {
   (void)y;
 }
 
-void setup() {
-  Serial.begin(115200);
+void crash_pointer()
+{
+  int *ptr = (int *)0xDEADBEEF;
+  *ptr = 42;
+}
+
+void setup()
+{
+  Serial.begin(9600);
   delay(1000);
   Serial.println("Start working...");
-  crash_me();
+  crash_pointer();
+  // crash_me();
 }
 
 void loop() {}
